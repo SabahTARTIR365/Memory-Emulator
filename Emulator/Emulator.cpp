@@ -1,23 +1,23 @@
 #include <iostream>
 #include <cstdlib>
 #include "StrutureHelper.cpp";
-
 #include "Services.h"
 using namespace std;
 
 void menu();
 void mainMenu();
 void addDataSetForQueue();
-int choice1 = 0;
 
+int choice1 = 0;
 Services CommandServices;
 
-
+/**
+* @brief the main function that run the project
+*/
 int main(int argc, char** argv) {
 
     addDataSetForQueue();
     menu();
-
     return 0;
 }
 
