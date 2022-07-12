@@ -12,8 +12,15 @@ class Services
 {
 
 public:
+    /**
+    * @brief Queue that contain all the commands.
+    */
     std::queue<Command> PriorityQueue;
+    /**
+     * @brief the hash map that contain the addredd and the value of the data
+     */
     unordered_map<uint8_t, uint8_t> Memory;
+
     bool isExcute = true;
     void Add(Command command);
     void Excute();

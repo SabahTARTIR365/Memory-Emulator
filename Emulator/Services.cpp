@@ -2,7 +2,7 @@
 #include <queue>
 using namespace std;
 
-/*! \brief Add new command to the PriorityQueue
+/** Add new command to the PriorityQueue
  *
  * adding command will be according to its prority
  * 0 for normal push and 1 to be added to the top of the queue
@@ -13,6 +13,10 @@ void Services::Add(Command command)
 
 }
 
+/**
+   * @brief Execute all the procees in the priority queue which inclue the 
+   * 3 type of command read, write and delete  
+   */
 void Services::Excute()
 {
 	Command CurrentCommand;
@@ -59,11 +63,12 @@ void Services::Excute()
 
 	}
 }
-/*! \brief remove command from PriorityQueue
- *
+/**
+ * @brief remove command from PriorityQueue
  * Removing command will be according to its position
  *  if it was in the top of queue will be removed directly
  *  else a sawp process will happen to remove it from the queue
+ * @param id of the desired object
  */
 void Services::Remove(int Id)
 {
@@ -74,11 +79,20 @@ void Services::Remove(int Id)
 	else cout << " Id is not exist";
 }
 
+/**
+ * @brief set the executetion process to aborted.
+ * 
+ */
 void Services::Abort()
 {
 	isExcute = false;
 	cout << "The Process aborted \n";
 }
+/**
+ * @brief push command to the front of the queue insted 
+ *of tail according to priority of the command
+ * @param  the desired object to be pushed
+ */
 
 void Services::pushOnTheFrontOfQueue(Command Currentcommand)
 {
@@ -92,6 +106,11 @@ void Services::pushOnTheFrontOfQueue(Command Currentcommand)
 	swap(replacmentQueue);
 
 }
+
+/**
+ * @brief to check if the the command is exist according to its Id
+ * @param id of the desired object
+ */
 
 bool Services::isExist(int Id)
 {
@@ -108,7 +127,11 @@ bool Services::isExist(int Id)
 	cout << "The id is not exist \n";
 	return false;
 }
-
+/**
+ * @brief to make swapping for the priority queue that contain all the command 
+ * and with another temporery queue in order to keep the FIFO principle
+ * @param the swaped queue 
+ */
 void Services::swap(queue<Command> SwapedQueue)
 {
 	while (!SwapedQueue.empty())
@@ -118,6 +141,11 @@ void Services::swap(queue<Command> SwapedQueue)
 	}
 }
 
+/**
+ * @brief to delete any command whenever it is exist in the queue
+ * and make sure to keep the FIFO principle
+ * @param id of the desired object to be deleted
+ */
 void Services::deleteFromAnyPlace(int Id)
 {
 	queue<Command> replacmentQueue;

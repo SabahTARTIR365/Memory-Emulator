@@ -1,3 +1,6 @@
 ﻿  Emulator.cpp
 C:\Users\Sabah Tartir\source\repos\Emulator\Emulator\Emulator.cpp(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Services.cpp
+  StrutureHelper.cpp
+  Generating Code...
   Emulator.vcxproj -> C:\Users\Sabah Tartir\source\repos\Emulator\x64\Debug\Emulator.exe

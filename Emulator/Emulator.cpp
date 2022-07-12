@@ -22,6 +22,29 @@ int main(int argc, char** argv) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+* @brief desplay the console menu that has the possiple option to be proccessed .
+*/
 void menu() {
 
     do {
@@ -30,27 +53,26 @@ void menu() {
 
         switch (choice1) {
 
-        case 1:
+        case 1: //to Add command 
             cout << "The data already generated as dataset in the begining \n\n";
             break;
 
-        case 2:
+        case 2:// to remove command 
             cout << "Select Id from the above list and enter\n";
             int id;
             cin >> id;
             CommandServices.Remove(id);
             break;
 
-        case 3:
+        case 3:// to execute the command queues 
             cout << "----------Excution process for command start------- \n";
             CommandServices.Excute();
             break;
-        case 4:
+        case 4:// to abort the ability to execute 
             CommandServices.Abort();
             break;
-        case 5:
+        case 5:// to exit 
             break;//for quit
-
         }
 
     } while (choice1 != 5);
@@ -58,7 +80,11 @@ void menu() {
 
 }
 
-
+/**
+* @brief generate data set for the queue to be able to test most cases 
+* read before write in spisific addree ( no data fond )
+* or find the data if it was write command then read for the same address
+*/
 
 void addDataSetForQueue()
 {  
@@ -99,6 +125,9 @@ void addDataSetForQueue()
     cout << "-------------------------End of Generation ----------------------------- \n";
     }
 
+/**
+* @brief The short menu to be repeted and to seleted.
+*/
 void mainMenu(void) {
 
 
