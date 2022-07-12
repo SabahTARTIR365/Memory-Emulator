@@ -26,20 +26,20 @@ void Services::Excute()
 			CurrentResponse.command = CurrentCommand;
 			CurrentResponse.command.Type = "Response for " + CurrentCommand.Type;
 			CurrentResponse.status = "Succeeded";
-
+			uint8_t key= CurrentCommand.StoredData.Address;
 			if (CurrentCommand.Type == "read")
 			{
 				cout << "the data ";
-				if (Memory.find(CurrentCommand.StoredData.Address) == Memory.end())
-					cout << CurrentCommand.StoredData.Address << " not found\n";
+				if (Memory.find(key) == Memory.end())
+					cout << "at address "<<std::to_string(CurrentCommand.StoredData.Address) << " not found\n";
+
+
 				// If key found then iterator to that key is returned
 				else
 				{
 					cout << "Found at address " << CurrentCommand.StoredData.Address;
-					// cout << " ,data=" << Memory.at(CurrentCommand.StoredData.Address) << "\n";
 					cout << " ,data=" << Memory[CurrentCommand.StoredData.Address] << "\n";
 				}
-
 
 			}
 			else if (CurrentCommand.Type == "write")
@@ -55,6 +55,7 @@ void Services::Excute()
 			PriorityQueue.pop();
 
 		}
+		isExcute = false;
 
 	}
 }
@@ -70,7 +71,7 @@ void Services::Remove(int Id)
 	{
 		PriorityQueue.front().Id == Id ? PriorityQueue.pop() : deleteFromAnyPlace(Id);
 	}
-	else cout << " Id is not not exist";
+	else cout << " Id is not exist";
 }
 
 void Services::Abort()
@@ -96,14 +97,15 @@ bool Services::isExist(int Id)
 {
 	queue<Command> TemporaryQueue = PriorityQueue; //copy the original queue to the temporary queue
 	Command currentCommand;
-
+	
+	
 	while (!TemporaryQueue.empty())
 	{
 		currentCommand = TemporaryQueue.front();
 		if (Id == currentCommand.Id)return true;
-		//std::cout << currentCommand <<"\n";
 		TemporaryQueue.pop();
 	}
+	cout << "The id is not exist \n";
 	return false;
 }
 
@@ -133,6 +135,6 @@ void Services::deleteFromAnyPlace(int Id)
 
 	}
 	swap(replacmentQueue);
-	cout << "deleted successfully";
+	cout << "Deleted successfully \n";
 
 }

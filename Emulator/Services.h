@@ -2,6 +2,12 @@
 #include <queue>
 #include "StrutureHelper.cpp"
 #include <unordered_map>
+
+/**
+ * @brief Services class used for command 4 main process add, execute, abort and delete.
+ */
+
+
 class Services
 {
 

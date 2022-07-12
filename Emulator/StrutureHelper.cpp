@@ -21,8 +21,8 @@ struct Command {
 		return Priority ? "Quick command " : "Simple command";
 	}
 	void print()const {
-		printf("Inside Print function \n");
-		cout << "Command #" << Id << "( " + Type + ") " << IsQuickCommand() << "data =" << std::to_string(StoredData.Value) << "\n";
+		
+		cout << "Command #" << Id << "( " + Type + ") " << IsQuickCommand() << "data =" << std::to_string(StoredData.Value) << "at address" << std::to_string(StoredData.Address) << "\n";
 	}
 
 	Command(int id, string type, bool priority) {
@@ -40,7 +40,7 @@ struct Response
 	string status;
 
 	void print()const {
-		printf("Inside Print Response function \n");
+	
 		cout << "Response (" + status + ") for Command #" << command.Id << ",(" + command.Type + ") " << command.IsQuickCommand() << "\n";
 	}
 
